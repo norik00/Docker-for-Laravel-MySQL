@@ -78,6 +78,20 @@ To activate the new configuration, you need to run:
 # service apache2 restart
 ```
 
+## DB接続設定
+
+`laravel`ディレクトリ内の`.env`ファイルを書き換える
+`docker-compose`を確認する
+
+```
+DB_CONNECTION=mysql
+DB_HOST=<service_name>
+DB_PORT=3306
+DB_DATABASE=<MYSQL_DATABASE>
+DB_USERNAME=<MYSQL_USER>
+DB_PASSWORD=<MYSQL_PASSWORD>
+```
+
 ## laravel よく使うコマンド
 
 ### コントローラーファイル作成
