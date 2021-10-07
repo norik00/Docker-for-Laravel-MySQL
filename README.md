@@ -30,14 +30,36 @@ $ docker-compose up -d
 $ docker-compose exec "container_name" bash
 ```
 
-storageディレクトリの権限を変更
+### プロジェクトを新規で作成する場合
+`server`ディレクトリ内の`laravel`は削除する
+
+プロジェクトの作成と`storage`ディレクトリの権限を変更
 ```
 /var/www/html# composer create-project laravel/laravel "dir_name"
 /var/www/html# cd "dir_name
 /var/www/html/dir_name# chmod -R 777 storage
 ```
 
-ブラウザで以下画面が表示される
+### 既存のプロジェクトを使用する場合
+
+```
+# cd laravel
+# composer update
+# chmod -R 777 storage
+```
+
+`.env`ファイルとAPP_KEYを作成する
+```
+# cp .env.example .env
+# php artisan key:generate
+Application key set successfully.
+
+# php artisan cache:clear
+```
+
+`php artisan key:generate`で`.env`ファイルのAPP_kEYにKEYが書き込まれる
+
+`http://localhost:18000/`にアクセスすると以下の画面が表示される
 ![top.jpg](top.jpg)
 
 ## mod_rewriteを有効
